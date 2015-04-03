@@ -1,5 +1,5 @@
 <?php
 echo "<pre>";
-echo $_REQUEST;
-echo $_SERVER;
+print_r($_REQUEST);
+print_r($_SERVER);
 ?>
