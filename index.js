@@ -11,7 +11,7 @@ $(document).ready(function() {
                 data: JSON.stringify(loginobject),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                success: function() { window.location.reload(true); }
+                success: window.location.reload(true),
             });
         }
         else {
@@ -21,5 +21,11 @@ $(document).ready(function() {
     $("#resetbutton").click(function() {
         $("#usernameinput").val("");
         $("#passwordinput").val("");
+    });
+
+    $("input").keypress(function (e) {
+        if (e.which == 13) {
+            jQuery('#submitbutton').focus().click();
+        }
     });
 });
