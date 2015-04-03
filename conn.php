@@ -1,8 +1,9 @@
 <?php
 $host = "db.luxing.im";
-$dbusername = "a6-test";
+$dbusername = "a6";
 $dbpassword = "JtsTuDe6SFKVxUvF";
-$dbname = "a6-test";
+$dbname = "a6";
+$prefix = "a6-";
 
 $db = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
 if ($db->connect_error) {
@@ -12,11 +13,12 @@ if ($db->connect_error) {
 function install() {
     # Import SQL into the database.
     global $db;
+    echo 'install()';
 }
 
 function isInstalled() {
-    global $db;
-    $sql = "SELECT * FROM puser";
+    global $db, $prefix;
+    $sql = "SELECT * FROM " . $prefix . "puser";
     $result = $db->query($sql);
     if ($result == NULL) {
         install();

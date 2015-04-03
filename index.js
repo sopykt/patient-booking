@@ -11,12 +11,15 @@ $(document).ready(function() {
                 data: JSON.stringify(loginobject),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                success: function() { location.reload(); }
-                }
+                success: function() { window.location.reload(true); }
             });
         }
         else {
             console.log("empty username or password.");
         }
+    });
+    $("#resetbutton").click(function() {
+        $("#usernameinput").val("");
+        $("#passwordinput").val("");
     });
 });
