@@ -8,7 +8,7 @@ $(document).ready(function() {
             $.ajax({
                 type: "POST",
                 url: "login.php",
-                data: JSON.stringfy(loginobject),
+                data: JSON.stringify(loginobject),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function() { location.reload(); },
