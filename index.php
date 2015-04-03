@@ -9,6 +9,7 @@ else {
 <head>
 <title>Login</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="index.js"></script>
 </head>
 <body>
 <h2 id="login-title">Login</h2>
@@ -19,6 +20,7 @@ Username:<br>
 <br>
 Password:<br>
 <input type="password" id="passwordinput">
+<br />
 <input type="button" id='submitbutton' value="Submit"> &nbsp; <input type="button" value="Reset" id="resetbutton">
 <br />
 <a href="register.php" id='registerbutton'>Not Registered?</a>
