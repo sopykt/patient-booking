@@ -16,7 +16,7 @@ else {
 <div id="loginpanel">
 <form>
 Username:<br>
-<input type="text" name="usernameinput">
+<input type="text" id="usernameinput">
 <br>
 Password:<br>
 <input type="password" id="passwordinput">
