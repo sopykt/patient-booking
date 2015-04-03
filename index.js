@@ -17,5 +17,8 @@ $(document).ready(function() {
                 }
             });
         }
+        else {
+            console.log("empty username or password.");
+        }
     });
 });

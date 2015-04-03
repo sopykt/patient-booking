@@ -25,6 +25,7 @@ Password:<br>
 <br />
 <a href="register.php" id='registerbutton'>Not Registered?</a>
 </form> 
+<p id='index-msg'>
 </div>
 </body>
 </html>
