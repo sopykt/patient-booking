@@ -13,7 +13,7 @@ if ($db->connect_error) {
 function install() {
     # Import SQL into the database.
     global $db;
-    echo 'install()';
+    //echo 'install()';
 }
 
 function isInstalled() {

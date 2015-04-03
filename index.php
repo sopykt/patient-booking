@@ -1,7 +1,8 @@
 <?php
 # Check mysql
 require_once("conn.php");
-if (isset($_SESSION['user'])) {
+session_start();
+if (isset($_SESSION['level'])) {
     header("location:select.php");
 }
 else {
