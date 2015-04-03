@@ -1,4 +1,6 @@
 <?php
+# Check mysql
+require_once("conn.php");
 if (isset($_SESSION['user'])) {
     header("location:select.php");
 }

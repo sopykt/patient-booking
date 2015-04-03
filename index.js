@@ -11,9 +11,7 @@ $(document).ready(function() {
                 data: JSON.stringify(loginobject),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                success: function() { location.reload(); },
-                failure: function(err){
-                    $("#index-msg").val("<p>Incorrect username/password combination.</p>");
+                success: function() { location.reload(); }
                 }
             });
         }
