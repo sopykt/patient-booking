@@ -15,6 +15,11 @@ else {
 <script src="index.js"></script>
 </head>
 <body>
+<?php
+    if (isset($_REQUEST['m'])) {
+        echo "<p>" . $_REQUEST['m'] . "</p>";
+    }
+?>
 <h2 id="login-title">Login</h2>
 <div id="loginpanel">
 <form>
