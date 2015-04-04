@@ -94,7 +94,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
 <title>Patient Registration</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="reg.js"></script>
+<script src="js/reg.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body>
 <?php echo '<p>' . $msg . '</p>'; ?>
@@ -111,6 +112,8 @@ Health Card ID: <input type='text' id='regid' name='id' value="<?php echo $id ?>
 </form>
 
 <br />
+
+<a href='index.php'>Home</a>
 
 </body>
 </html>
