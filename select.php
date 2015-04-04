@@ -9,7 +9,7 @@ if($_SESSION['level'] == 'patient' ) {
     header("location:patient.php");
 }
 else if($_SESSION['level'] == 'employee' ) {
-    header("location:employee.php");
+    header("location:manage.php");
 }
 else {
     header("location:index.php");

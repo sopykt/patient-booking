@@ -4,14 +4,19 @@ require_once("conn.php");
 
 if (isset($_SESSION['level']))
 {
-    if ($_SESSION['level'] == 'employee') {
-        header("location:eprofile.php");
+    if ($_SESSION['level'] == 'patient') {
+        header("location:profile.php");
     }
-    $passwordErr = $retypeErr = $firstErr = $lastErr = $phoneErr = $addrErr = $idErr = "";
-    $username = $password = $retype = $first = $last = $phone = $addr = $id = $msg = "";
-    $haserror = false;
+    $passwordErr = $retypeErr = $firstErr = $lastErr = $phoneErr = $addrErr = "";
+    $username = $password = $retype = $first = $last = $phone = $addr = $msg = $rateErr = "";
+    $haserror = false; $rate = 0;
     $uid = $_SESSION['uid'];
-    $sql = "SELECT * FROM `" . $prefix . "puser` WHERE id='" . $uid . "'";
+
+    if (isset($_REQUEST['uid'])) {
+        $uid = $_REQUEST['uid'];
+    }
+
+    $sql = "SELECT * FROM `" . $prefix . "employee` WHERE id='" . $uid . "'";
 
     $result = $db->query($sql);
     if ($result->num_rows == 0) {
@@ -25,7 +30,7 @@ if (isset($_SESSION['level']))
         $last = $row['last'];
         $phone = $row['phone'];
         $addr = $row['addr'];
-        $id = $row['healthid'];
+        $rate = $row['rate'];
     }
 
 
@@ -75,6 +80,14 @@ if (isset($_SESSION['level']))
             $phone = htmlspecialchars($_POST['phone']);
         }
 
+        if (empty($_POST['rate'])) {
+            $rateErr = "Rate is needed.";
+            $haserror = true;
+        }
+        else {
+            $rate = htmlspecialchars($_POST['rate']);
+        }
+
         if (empty($_POST['addr'])) {
             $addrErr = "Address is required";
             $haserror = true;
@@ -83,17 +96,9 @@ if (isset($_SESSION['level']))
             $addr = htmlspecialchars($_POST['addr']);
         }
 
-        if (empty($_POST['id'])) {
-            $idErr = htmlspecialchars($_POST['id']);
-            $haserror = true;
-        }
-        else {
-            $id = htmlspecialchars($_POST['id']);
-        }
-
         if ($haserror == false) {
 
-            $sql = "UPDATE `" . $prefix . "puser` SET `password` ='" . $password . "', `first` = '" . $first . "', `last` = '" . $last . "', `addr` = '" . $addr . "' WHERE `id` = " . $uid;
+            $sql = "UPDATE `" . $prefix . "employee` SET `password` ='" . $password . "', `first` = '" . $first . "', `last` = '" . $last . "', `addr` = '" . $addr . "', `rate`='". $rate . "' WHERE `id` = " . $uid;
 
             if ($db->query($sql) === true) {
                 $msg = "Successfully updated profile.";
@@ -117,6 +122,7 @@ if (isset($_SESSION['level']))
 <body>
 <?php echo '<p>' . $msg . '</p>'; ?>
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
+UID: <?php echo $uid ?> <br />
 Username: <?php echo $username?> <br/>
 Password: <input type="password" id="regpass" name="password"><span class="err"> <?php echo $passwordErr ?> <br />
 Re-type Password: <input type="password" id='regpass2' name="retype"><span class="err"> <?php echo $retypeErr ?> <br />
@@ -124,7 +130,7 @@ First name: <input type='text' id='regfirst' name="first" value="<?php echo $fir
 Last name: <input type='text' id='reglast' name="last" value="<?php echo $last ?>"><span class="err"> <?php echo $lastErr ?> <br />
 Address: <input type='text' id='regaddr' name="addr" value="<?php echo $addr ?>"><span class="err"> <?php echo $addrErr ?> <br />
 Phone number: <input type='text' id='regphone' name='phone' value="<?php echo $phone ?>"><span class="err"> <?php echo $phoneErr ?> <br />
-Health Card ID: <input type='text' id='regid' name='id' value="<?php echo $id ?>"> <span class="err"> <?php echo $idErr ?> <span class="err"> <?php echo $idErr ?> </br />
+Charge Rate: <input type='text' id='regrate' name='rate' value="<?php echo $rate ?>"><span class="err"> <?php echo $rateErr ?> <br />
 <input type="submit" id='regsubmit' value="Submit"> &nbsp; <input type="button" value="Reset" id="regreset"> <br />
 </form>
 

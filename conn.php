@@ -87,6 +87,7 @@ ALTER TABLE `" . $prefix . "puser`
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 ";
     $db->query($sql);
+    echo 'Installed';
 }
 
 function isInstalled() {

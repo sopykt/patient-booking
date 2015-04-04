@@ -11,11 +11,11 @@ $result = $db->query($sql);
 if ($result->num_rows == 1) {
     $row = $result->fetch_assoc();
     $_SESSION['user'] = strtolower($obj['username']);
+    $_SESSION['uid'] = $row['id'];
     $_SESSION['first'] = $row['first'];
     $_SESSION['last'] = $row['last'];
     $_SESSION['addr'] = $row['addr'];
     $_SESSION['phone'] = $row['phone'];
-    $_SESSION['id'] = $row['id'];
     $_SESSION['rate'] = $row['rate'];
     $_SESSION['level'] = 'employee';
 }

@@ -17,7 +17,7 @@ if ($result->num_rows == 1) {
     $_SESSION['addr'] = $row['addr'];
     $_SESSION['phone'] = $row['phone'];
     $_SESSION['healthid'] = $row['healthid'];
-    $_SESSION['pid'] = $row['pid'];
+    $_SESSION['hid'] = $row['healthid'];
     $_SESSION['level'] = 'patient';
 }
 
