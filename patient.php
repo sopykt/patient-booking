@@ -46,12 +46,13 @@ if ($_SESSION['level'] == 'patient') {
         echo '<p>You have no appointments today or in the future.</p>';
     }
     else{
+        $counter = 1;
         echo "<table border='2'>";
-        echo "<th>Calendar ID</th><th>Patient Name</th><th>Doctor Name</th><th>Time</th><th>Duration (minutes)</th><th>Cancel?</th>";
+        echo "<th>ID</th><th>Patient Name</th><th>Doctor Name</th><th>Time</th><th>Duration (minutes)</th><th>Cancel?</th>";
 
         while ($row = $results->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>" . $row['id'] . "</td>";
+            echo "<td>" . $counter++ . "</td>";
             echo "<td>" . $_SESSION['first'] . " " . $_SESSION['last'] . "</td>";
             $employee = $db->query("SELECT `first`,`last` FROM `". $prefix . "employee` WHERE `id`='" . $row['eid'] . "'");
             $ename = $employee->fetch_assoc();
