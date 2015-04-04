@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $haserror = true;
     }
     else {
-        $phone = htmlspecialchars($_POST['last']);
+        $phone = htmlspecialchars($_POST['phone']);
     }
 
     if (empty($_POST['addr'])) {
@@ -107,7 +107,7 @@ First name: <input type='text' id='regfirst' name="first" value="<?php echo $fir
 Last name: <input type='text' id='reglast' name="last" value="<?php echo $last ?>"><span class="err"> <?php echo $lastErr ?> <br />
 Address: <input type='text' id='regaddr' name="addr" value="<?php echo $addr ?>"><span class="err"> <?php echo $addrErr ?> <br />
 Phone number: <input type='text' id='regphone' name='phone' value="<?php echo $phone ?>"><span class="err"> <?php echo $phoneErr ?> <br />
-Health Card ID: <input type='text' id='regid' name='id' value="<?php echo $id ?>"> <span class="err"> <?php echo $idErr ?> <span class="err"> <?php echo $usernameErr ?> </br />
+Health Card ID: <input type='text' id='regid' name='id' value="<?php echo $id ?>"> <span class="err"> <?php echo $idErr ?> <span class="err"> <?php echo $idErr ?> </br />
 <input type="submit" id='regsubmit' value="Submit"> &nbsp; <input type="button" value="Reset" id="regreset"> <br />
 </form>
 
