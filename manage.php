@@ -42,7 +42,7 @@ if ($_SESSION['level'] == 'employee') {
 <p> <?php echo $msg; ?>
 <p> <?php echo "Welcome, ". $_SESSION['first'] . " " . $_SESSION['last'] . "!";?></p>
 
-<p><a href="logout.php">Logout</a> &nbsp; <a href="eprofile.php">Update Profile</a></p>
+<p><a href="logout.php">Logout</a> &nbsp; <a href="eprofile.php">Update Profile</a> &nbsp; <a href="eregister.php">Add a new employee</a></p>
 <h2>List of all future schedules</h2>
 <?php
     $results = $db->query($sql_allSched);

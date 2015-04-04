@@ -7,5 +7,6 @@ $(document).ready(function() {
         $("#reglast").val("");
         $("#regaddr").val("");
         $("#regphone").val("");
+        $("#regid").val("");
     });
 });
