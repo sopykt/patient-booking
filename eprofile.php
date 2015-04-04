@@ -114,7 +114,7 @@ if (isset($_SESSION['level']))
 
 <html>
 <head>
-<title>Patient Registration</title>
+<title>Employee Profile Edit</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="js/reg.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>

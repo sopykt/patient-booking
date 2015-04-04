@@ -4,10 +4,34 @@ $msg = '';
 $time = date('U');
 require_once("conn.php");
 if ($_SESSION['level'] == 'employee') {
+    # Delete module
+    if (isset($_REQUEST['a']) && $_REQUEST['a'] == 'd') {
+        if (isset($_REQUEST['cid'])) {
+            $cid = $_REQUEST['cid'];
+            $sql = "DELETE FROM `" . $prefix . "schedule` WHERE `id` = $cid;";
+            $db->query($sql);
+        }
+
+        if (isset($_REQUEST['t']) && $_REQUEST['t'] == 'puser') {
+            if (isset($_REQUEST['uid'])) {
+                $uid = $_REQUEST['uid'];
+                $sql = "DELETE FROM `" . $prefix . "puser` WHERE `id` = $uid";
+                $db->query($sql);
+            }
+        }
+
+        if (isset($_REQUEST['t']) && $_REQUEST['t'] == 'employee') {
+            if (isset($_REQUEST['uid'])) {
+                $uid = $_REQUEST['uid'];
+                $sql = "DELETE FROM `" . $prefix . "employee` WHERE `id` = $uid";
+                $db->query($sql);
+            }
+        }
+    }
     # Can manage both patient records and employee schedule
     $sql_allPatients = "SELECT * FROM `" . $prefix . "puser` ORDER BY `last`";
     $sql_allEmployee = "SELECT * FROM `" . $prefix . "employee` ORDER BY `last`";
-    $sql_allSched = "SELECT `id`,`pid`,`eid`,`type`,`duration`,FROM_UNIXTIME(`unixtime`) FROM `" . $prefix . "schedule` WHERE `unixtime` > $time";
+    $sql_allSched = "SELECT `id`,`pid`,`eid`,`type`,`duration`,FROM_UNIXTIME(`unixtime`) FROM `" . $prefix . "schedule` WHERE `unixtime` > $time ORDER BY `unixtime`";
 ?>
 
 <html>
@@ -66,8 +90,8 @@ if ($_SESSION['level'] == 'employee') {
             echo "<td>" . $row['addr'] . "</td>";
             echo "<td>" . $row['phone'] . "</td>";
             echo "<td>" . $row['healthid'] . "</td>";
-            echo "<td><a href='edit.php?t=puser&uid=" . $row['id'] . "'>Edit</a></td>";
-            echo "<td><a href='manage.php?t=puser&id=" . $row['id'] . "&act=d'>Delete</a></td>";
+            echo "<td><a href='profile.php?uid=" . $row['id'] . "'>Edit</a></td>";
+            echo "<td><a href='manage.php?t=puser&uid=" . $row['id'] . "&a=d'>Delete</a></td>";
         }
         echo "</table>";
         unset($row);
@@ -93,7 +117,7 @@ if ($_SESSION['level'] == 'employee') {
             echo "<td>" . $row['phone'] . "</td>";
             echo "<td>$" . $row['rate'] . "</td>";
             echo "<td><a href='eprofile.php?uid=" . $row['id'] . "'>Edit</a></td>";
-            echo "<td><a href='manage.php?t=employee&id=" . $row['id'] . "&act=d'>Delete</a>";
+            echo "<td><a href='manage.php?t=employee&uid=" . $row['id'] . "&a=d'>Delete</a>";
         }
         echo "</table>";
     }

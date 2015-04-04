@@ -4,13 +4,16 @@ require_once("conn.php");
 
 if (isset($_SESSION['level']))
 {
-    if ($_SESSION['level'] == 'employee') {
+    $uid = $_SESSION['uid'];
+    if ($_SESSION['level'] == 'employee' and isset($_REQUEST['uid'])) {
+        $uid = $_REQUEST['uid'];
+    }
+    else {
         header("location:eprofile.php");
     }
     $passwordErr = $retypeErr = $firstErr = $lastErr = $phoneErr = $addrErr = $idErr = "";
     $username = $password = $retype = $first = $last = $phone = $addr = $id = $msg = "";
     $haserror = false;
-    $uid = $_SESSION['uid'];
     $sql = "SELECT * FROM `" . $prefix . "puser` WHERE id='" . $uid . "'";
 
     $result = $db->query($sql);
@@ -109,7 +112,7 @@ if (isset($_SESSION['level']))
 
 <html>
 <head>
-<title>Patient Registration</title>
+<title>Patient Profile Edit</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="js/reg.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
