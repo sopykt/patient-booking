@@ -24,6 +24,10 @@ Username:<br>
 Password:<br>
 <input type="password" id="passwordinput">
 <br />
+<input type="radio" name="ue" value="patient" checked>Patient
+<br />
+<input type="radio" name="ue" value="employee">Employee
+<br />
 <input type="button" id='submitbutton' value="Submit"> &nbsp; <input type="button" value="Reset" id="resetbutton">
 <br />
 <a href="register.php" id='registerbutton'>Not Registered?</a>

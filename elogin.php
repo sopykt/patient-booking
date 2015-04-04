@@ -5,7 +5,7 @@ session_start();
 $json = file_get_contents('php://input');
 $obj = json_decode($json, true);
 
-$sql = 'SELECT * FROM `' . $prefix . 'puser` WHERE username="' . strtolower(htmlspecialchars($obj['username'])) . '" AND password="' . htmlspecialchars($obj['password']) . '"'; print_r($sql);
+$sql = 'SELECT * FROM `' . $prefix . 'employee` WHERE username="' . strtolower(htmlspecialchars($obj['username'])) . '" AND password="' . htmlspecialchars($obj['password']) . '"'; print_r($sql);
 $result = $db->query($sql);
 
 if ($result->num_rows == 1) {
@@ -15,9 +15,12 @@ if ($result->num_rows == 1) {
     $_SESSION['last'] = $row['last'];
     $_SESSION['addr'] = $row['addr'];
     $_SESSION['phone'] = $row['phone'];
-    $_SESSION['healthid'] = $row['healthid'];
-    $_SESSION['pid'] = $row['pid'];
-    $_SESSION['level'] = 'patient';
+    $_SESSION['id'] = $row['id'];
+    $_SESSION['rate'] = $row['rate'];
+    $_SESSION['level'] = 'employee';
 }
-
+else {
+    echo "Something is wrong.";
+    die();
+}
 ?>
