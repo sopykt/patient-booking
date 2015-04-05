@@ -1,12 +1,9 @@
-COMP 2513
+Web-driven Booking website.
 ==
 
-Assignment 6
+For Assignment 6, COMP 2513 Web Centric Programming Course @ Acadia University
 
-Assignment #6 – Database Driven Website
-
- 
-Requirements
+Assignment Requirements
 ==
 
 This, the final assignment, exercises your knowledge of database-driven Websites using both client-side and server-side code.
