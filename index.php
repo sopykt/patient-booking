@@ -15,6 +15,7 @@ else {
 <script src="js/index.js"></script>
 </head>
 <body>
+<h1>Welcome to the patient booking website for FeelBetter Physiotherapy Clinic</h2>
 <?php
     if (isset($_REQUEST['m'])) {
         echo "<p>" . $_REQUEST['m'] . "</p>";
