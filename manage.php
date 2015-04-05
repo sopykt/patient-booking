@@ -31,7 +31,7 @@ if ($_SESSION['level'] == 'employee') {
     # Can manage both patient records and employee schedule
     $sql_allPatients = "SELECT * FROM `" . $prefix . "puser` ORDER BY `last`";
     $sql_allEmployee = "SELECT * FROM `" . $prefix . "employee` ORDER BY `last`";
-    $sql_allSched = "SELECT `id`,`pid`,`eid`,`type`,`duration`,FROM_UNIXTIME(`unixtime`) FROM `" . $prefix . "schedule` WHERE `unixtime` > $time ORDER BY `unixtime`";
+    $sql_allSched = "SELECT `id`,`pid`,`eid`,`type`,`duration`,FROM_UNIXTIME(`unixtime`),FROM_UNIXTIME(`added`) FROM `" . $prefix . "schedule` WHERE `unixtime` > $time ORDER BY `unixtime`";
 ?>
 
 <html>
@@ -42,7 +42,7 @@ if ($_SESSION['level'] == 'employee') {
 <p> <?php echo $msg; ?>
 <p> <?php echo "Welcome, ". $_SESSION['first'] . " " . $_SESSION['last'] . "!";?></p>
 
-<p><a href="logout.php">Logout</a> &nbsp; <a href="eprofile.php">Update Profile</a> &nbsp; <a href="eregister.php">Add a new employee</a></p>
+<p><a href="logout.php">Logout</a> &nbsp; <a href="eprofile.php">Update Profile</a> &nbsp; <a href="eregister.php">Add a new employee</a> &nbsp; <a href="appointment.php">Add Appointment</a></p>
 <h2>List of all future schedules</h2>
 <?php
     $results = $db->query($sql_allSched);
@@ -52,7 +52,7 @@ if ($_SESSION['level'] == 'employee') {
     else {
         echo "Total: " . $results->num_rows . " future entries.";
         echo "<table border='2'>";
-        echo "<th>ID</th><th>Patient Name</th><th>Doctor Name</th><th>Time</th><th>Type</th><th>duration (minutes)</th><th>Cancel?</th>";
+        echo "<th>ID</th><th>Patient Name</th><th>Doctor Name</th><th>Time</th><th>Type</th><th>duration (minutes)</th><th>Added Date</th><th>Cancel?</th>";
         while ($row = $results->fetch_assoc()) {
             echo "<tr>";
             echo "<td>" . $row['id'] . "</td>";
@@ -65,6 +65,7 @@ if ($_SESSION['level'] == 'employee') {
             echo "<td>" . $row['FROM_UNIXTIME(`unixtime`)'] . "</td>";
             echo "<td>" . $row['type'] . "</td>";
             echo "<td>" . $row['duration'] . "</td>";
+            echo "<td>" . $row['FROM_UNIXTIME(`added`)'] . "</td>";
             echo "<td><a href=manage.php?a=d&cid=".$row['id']. ">Cancel</td>";
             echo "</tr>";
         }
