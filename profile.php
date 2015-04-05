@@ -32,7 +32,6 @@ if (isset($_SESSION['level']))
         $id = $row['healthid'];
     }
 
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($_POST['password'])) {
             $passwordErr = "Password is required";
@@ -106,9 +105,7 @@ if (isset($_SESSION['level']))
                 $msg = "Error: " . $db->error;
             }
         }
-
     }
-
 ?>
 
 <html>
@@ -131,11 +128,8 @@ Phone number: <input type='text' id='regphone' name='phone' value="<?php echo $p
 Health Card ID: <input type='text' id='regid' name='id' value="<?php echo $id ?>"> <span class="err"> <?php echo $idErr ?> <span class="err"> <?php echo $idErr ?> </br />
 <input type="submit" id='regsubmit' value="Submit"> &nbsp; <input type="button" value="Reset" id="regreset"> <br />
 </form>
-
 <br />
-
 <a href='index.php'>Home</a>
-
 </body>
 </html>
 <?php
