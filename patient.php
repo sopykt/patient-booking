@@ -65,6 +65,7 @@ if ($_SESSION['level'] == 'patient') {
     }
 ?>
 
+<p>&copy; Luxing Huang</p>
 </body>
 </html>
 <?php
