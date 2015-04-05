@@ -1,3 +1,15 @@
+Note
+==
+
+This is a very simple implementation. It didn't use any MVC framework or
+whatever because the requirements are simple.
+
+I did not implement any database security feature and there can be a lot of
+vulnerabilities due to my insufficient knowledge of web dev.
+
+This is not prettified at all. Plan form/text style. Feel free to use for
+internal purposes.
+
 Web-driven Booking website.
 ==
 
