@@ -1,9 +1,15 @@
 <?php
 $host = "localhost";
-$dbusername = "113287h";
-$dbpassword = "ham7OlOl2";
-$dbname = "113287h_db";
+$dbusername = "";
+$dbpassword = "";
+$dbname = "";
+
+# If you change the below line, you will need to change the sql import file prefix too.
 $prefix = "a6-";
+
+if (empty($dbusername)) {
+    die("Error: Please setup your configuration at conn.php.");
+}
 
 $db = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
 if ($db->connect_error) {
