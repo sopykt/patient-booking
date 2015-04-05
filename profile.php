@@ -8,6 +8,7 @@ if (isset($_SESSION['level']))
     if ($_SESSION['level'] == 'employee' and isset($_REQUEST['uid'])) {
         $uid = $_REQUEST['uid'];
     }
+    else if ($_SESSION['level'] == 'patient') { }
     else {
         header("location:eprofile.php");
     }
