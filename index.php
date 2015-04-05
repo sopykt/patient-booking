@@ -40,6 +40,7 @@ Password:<br>
 </form> 
 <p id='index-msg'>
 </div>
+<p>&copy; Luxing Huang</p>
 </body>
 </html>
 <?php

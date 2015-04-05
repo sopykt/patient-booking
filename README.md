@@ -90,3 +90,5 @@ Database Population:  After completing your application and testing it on falcon
  Orin Snorkel, Suzanne Almighty, back massage, 2015 June 22, 1:00pm, 2 hours
 
  Carol Ling, Teri Broadstreet, foot massage, 2015 May 23, 2:30pm, 1.0 hours
+
+(C) by Luxing Huang, 2015

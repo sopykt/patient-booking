@@ -80,6 +80,7 @@ if ($_SESSION['level'] == 'employee') {
 <div id="result">
 </div>
 <a href="index.php">Home</a> &nbsp; <a href="logout.php">Logout</a>
+<p>&copy; Luxing Huang</p>
 </body>
 </html>
 <?php

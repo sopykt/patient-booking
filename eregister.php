@@ -123,5 +123,6 @@ Rate: <input type='text' id='regid' name='rate' value="<?php echo $rate ?>"> <sp
 
 <a href='index.php'>Home</a> &nbsp; <a href='logout.php'>Logout</a>
 
+<p>&copy; Luxing Huang</p>
 </body>
 </html>

@@ -138,6 +138,7 @@ Charge Rate: <input type='text' id='regrate' name='rate' value="<?php echo $rate
 
 <a href='index.php'>Home</a>
 
+<p>&copy; Luxing Huang</p>
 </body>
 </html>
 <?php

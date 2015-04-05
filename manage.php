@@ -124,6 +124,7 @@ if ($_SESSION['level'] == 'employee') {
     }
 ?>
 
+<p>&copy; Luxing Huang</p>
 </body>
 </html>
 

@@ -119,5 +119,6 @@ Health Card ID: <input type='text' id='regid' name='id' value="<?php echo $id ?>
 
 <a href='index.php'>Home</a>
 
+<p>&copy; Luxing Huang</p>
 </body>
 </html>
