@@ -118,6 +118,7 @@ if (isset($_SESSION['level']))
 <body>
 <?php echo '<p>' . $msg . '</p>'; ?>
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
+ID: <?php echo $uid ?> <br />
 Username: <?php echo $username?> <br/>
 Password: <input type="password" id="regpass" name="password"><span class="err"> <?php echo $passwordErr ?> <br />
 Re-type Password: <input type="password" id='regpass2' name="retype"><span class="err"> <?php echo $retypeErr ?> <br />
