@@ -1,6 +1,5 @@
 <?php
 session_start();
-print_r($_SESSION['level']);
 if (!(isset($_SESSION['level']))) {
     header("location:index.php");
 }
