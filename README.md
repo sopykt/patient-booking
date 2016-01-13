@@ -15,6 +15,10 @@ Web-driven Booking website.
 
 For Assignment 6, COMP 2513 Web Centric Programming Course @ Acadia University
 
+License
+==
+See LICENSE
+
 Assignment Requirements
 ==
 
