@@ -19,7 +19,7 @@ if ($db->connect_error) {
 function install() {
     # Import SQL into the database. Buggy.
     global $db, $prefix, $dbname, $dbusername, $dbpassword;
-    $cmd = "mysql -u" . $dbusername . " -p" . $dbpassword . " " . $dbname . " < a6.sql";
+    $cmd = "mysql -h " . $host . " -u " . $dbusername . " -p" . $dbpassword . " " . $dbname . " < a6.sql";
     shell_exec($cmd);
     echo 'Installed';
 }
